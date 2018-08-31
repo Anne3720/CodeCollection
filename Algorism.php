@@ -8,7 +8,7 @@ function get_perfect($n){
         array('num'=>$n,'step'=>0),
     );
     while(!empty($q)){
-        $node = array_pop($q);
+        $node = array_shift($q);
         $num = $node['num'];
         $step = $node['step'];
         if($num==0){
