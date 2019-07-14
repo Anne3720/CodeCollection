@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+    /*CSS部分*/
+    <style>
+        .box1 {
+            width: 400px;
+            height: 300px;
+            background: pink;
+            /* border-top: 10px solid rebeccapurple; */
+            /* overflow:hidden; */
+            padding-top: 100px;
+            /* box-sizing: border-box; */
+            position: relative;
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .box3{
+            height: 100%;
+            width: 200px;
+            background: seagreen;
+        }
+    </style>
+
+<body>
+    <div class="box1">
+        <div class="box2">
+        </div>
+        <div class="box3">
+
+        </div>
+    </div>
+    <script>
+
+        // function add(a){
+        //     function sum(b){
+        //         a += b
+        //         return sum
+        //     }
+        //     sum.toString = function(){
+        //         return a
+        //     }
+        //     return sum
+        // }
+        
+        function add(...params1){
+            let total = 0
+            for(let i=0;i<params1.length;i++){
+                total += params1[i]
+            }
+            function sum(...params2){
+                for(let i=0;i<params2.length;i++){
+                    total += params2[i]
+                }
+                return sum
+            }
+            sum.toString = function(){
+                return total
+            }
+            return sum
+        }
+
+
+        console.log(add(1));             // 1
+        console.log(add(1)(2));      // 3
+        console.log(add(1)(2)(3));// 6
+        console.log(add(1)(2, 3)); // 6
+        console.log(add(1, 2)(3)); // 6
+        console.log(add(1, 2, 3)); // 6
+
+
+
+    </script>
+</body>
+
+</html>
